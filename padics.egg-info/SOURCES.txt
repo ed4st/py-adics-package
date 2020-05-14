@@ -1,0 +1,9 @@
+setup.py
+padics/GpnN.py
+padics/Number.py
+padics/__init__.py
+padics/main.py
+padics.egg-info/PKG-INFO
+padics.egg-info/SOURCES.txt
+padics.egg-info/dependency_links.txt
+padics.egg-info/top_level.txt
