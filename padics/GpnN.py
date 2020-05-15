@@ -1,6 +1,6 @@
 #NOTE: We suppose that all Numbers in GmMp have the same Number of digits
 #therefore, following algorithms follow this fact 
-from Number import Number
+from padics.Number import Number
 import random
 from random import randint
 import numpy as np
@@ -311,7 +311,7 @@ class GpnN:
     #print(labels)
     cbar.set_label('Norm', rotation=270)
     #plt.show()
-    plt.savefig("img/"+name + '.png')    
+    plt.savefig(name + '.png')    
 #-------------------------Monna Map---------------------------
   '''Monna map: takes a p-adic number that will be mapped 
   into a positive real number. Following function is going to return a vector
