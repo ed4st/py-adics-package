@@ -72,9 +72,12 @@ class GpnN:
     for i in self.numbers:
       i.show()
 #-------------------------sum---------------------------
-  #following function computes the sum of two p-adic 
-  #numbers and truncates the result to the first M-m digits
+  
   def p_sum(self, n1: Number, n2 : Number):
+    '''
+    Computes the sum of two p-adic 
+    numbers and truncates the result to the first M-m digits
+    '''
     n1.digits = n1.digits[::-1]  
     n2.digits = n2.digits[::-1]
 
@@ -89,9 +92,12 @@ class GpnN:
     n2.digits = n2.digits[::-1]
     return Number(n1.p, n1.n, n1.N, psum[::-1] )
 #-------------------------substraction-----------------------
-  #following function computes the substraction of two
-  #p-adic numbers and truncates the result to the first M-m digits
+
   def p_sub(self,n1: Number, n2 : Number):
+    '''
+    Computes the substraction of two
+    p-adic numbers and truncates the result to the first M-m digits
+    '''
     n1.digits = n1.digits[::-1]  
     n2.digits = n2.digits[::-1]  
     result = []#[0 for i in range(n1.digits)][1,0]
@@ -112,10 +118,12 @@ class GpnN:
     n2.digits = n2.digits[::-1]  
     return Number(n1.p, n1.n, n1.N, result[::-1] )
 #-------------------------product-------------------------
-  #following function computes the multiplication of two
-  #p-adic numbers and truncates the result to the first M-m digits
+  
   def p_mul(self, n1: Number, n2 : Number):
-
+    '''
+    Computes the multiplication of two
+    p-adic numbers and truncates the result to the first M-m digits
+    '''
     n1.digits = n1.digits[::-1]  
     n2.digits = n2.digits[::-1]  
 
@@ -140,11 +148,13 @@ class GpnN:
     n2.digits = n2.digits[::-1]  
     return(aux)
 #-------------------------division---------------------------
-  #following function returns the solution of congruence equation ax = b(mod p)
-  #where a,b are the first nonzero digit of divisor and dividend
-  #respectively. This solution can be given because p is prime
-
+  
   def first_dividend_digit_anihilator(self, dividend : Number,divisor : Number):
+    '''
+    Returns the solution of congruence equation ax = b(mod p)
+    where a,b are the first nonzero digit of divisor and dividend
+    respectively. This solution can be given because p is prime
+    '''
     dr  =  divisor.digits[0]
     dn  =  dividend.digits[0]
     if(dr == dn and(dr != 0 and dn != 0)):
@@ -157,10 +167,13 @@ class GpnN:
           return i
         if(dr*i-dn == 0):
           return i
-  #following funtion returns p-adic division when p is prime. 
-  # In other case we cannot guarantee the correct result of 
-  # first_dividend_digit_anihilator function
+  
   def p_div(self,dividend: Number, divisor : Number):
+    '''
+    Returns p-adic division when p is prime. 
+    In other case we cannot guarantee the correct result of 
+    first_dividend_digit_anihilator function
+    '''
     dividend_copy = dividend
     divisor_copy = divisor
     dividend_copy .digits = dividend_copy .digits[::-1]  
@@ -313,11 +326,14 @@ class GpnN:
     #plt.show()
     plt.savefig(name + '.png')    
 #-------------------------Monna Map---------------------------
-  '''Monna map: takes a p-adic number that will be mapped 
-  into a positive real number. Following function is going to return a vector
-  which entries are the evaluation of such map on every number in the numbers
-  atributte of current class'''
+  
   def monna_map(self):
+    '''
+    Monna map: takes a p-adic number that will be mapped 
+    into a positive real number. Following function is going to return a vector
+    which entries are the evaluation of such map on every number in the numbers
+    atributte of current class
+    '''
     real_numbers = []
     for pnumber in self.numbers:
       j = pnumber.len() - 1
@@ -535,17 +551,17 @@ class GpnN:
     cbar.set_label('solution values', rotation=270)
 
     #plt.show()
-  '''
-  following function returns a gif showing
-  the behaviour of ultrametric difussion equations: 
-  type_ic: type of initial condition(normal,random,ones)
-           default = normal
-           establishes the values of initial condition vector.
-           It can be distributed normally with mean 0 and variance 1,
-           randomically and constant(ones in every entry of initial
-           condition vector).  
-  '''
+  
   def export_gif(self, type_ic = None ):
+    '''
+    Returns a gif showing the behaviour of ultrametric difussion equations. 
+    type_ic: type of initial condition(normal,random,ones)
+             default = normal
+             establishes the values of initial condition vector.
+             It can be distributed normally with mean 0 and variance 1,
+             randomly and constant(ones in every entry of initial
+             condition vector).  
+    '''
     frames = []
     u = self.ODESols(type_ic)
     
