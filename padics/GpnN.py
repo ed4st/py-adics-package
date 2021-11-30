@@ -1,6 +1,6 @@
 '''
-WARNING: We suppose that all Numbers in GmMp have the same Number of digits
-therefore, following algorithms follow this fact 
+WARNING: We suppose that all Numbers in GmMp have the same Number of digits,
+therefore, below algorithms follow this fact 
 '''
 from padics.Number import Number
 import random
